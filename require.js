@@ -33,7 +33,7 @@ app.get('/process_get',function(req,res){
 })
 
 var server=app.listen(3000,function(){//监听3000port
-    var host=server.address().adress;
+    var host="94.191.33.247";
     var port=server.address().port;
     console.log('应用实例，访问地址为 http://%s:%s',host,port);
 })

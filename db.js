@@ -5,18 +5,12 @@ var mongoose = require('mongodb').MongoClient;
 /**
  * 连接
  */
-mongoose.connect(DB_URL,function (err,clien) {
+mongoose.connect(DB_URL,function (err,db) {
     if(!err){
         console.log("连接成功。");
     }
-
+   // db.close();
 });
 
-mongoose.disconnect(DB_URL,function (err,clit) {
-    if(!err)
-    {
-        console.log("连接断开");
-    }
 
-})
 module.exports = mongoose;

@@ -1,23 +1,15 @@
-var MongoClient = require("mongodb").MongoClient;
-var DB_URL = "mongodb://94.191.33.247:27017/test";
 
-function insertData(db)
-{
-    var devices = db.collection('vip');
-    var data = {"name":"node","age":22,"addr":"nb","addTime":new Date()};
-    devices.insert(data,function(error, result){
-        if(error)
-        {
-            console.log('Error:'+ error);
-        }else{
+var DB_CONN_STR = 'mongodb://94.191.33.247:27017/test';
+const mongoClient = require('mongodb').MongoClient;
+mongoClient.connect(DB_CONN_STR, function(err, client) {
 
-            console.log(result.result.n);
-        }
-        db.close();
+    console.log("连接成功。");
+    const db = client.db("test");
+    const pass = db.collection('custom');
+    var data=[{"name":"node","age":1},{"name":"test1","age":55}];
+    pass.insert(data,function (err,result) {
+        console.log(result);
+        client.close();
     });
-}
 
-MongoClient.connect(DB_URL, function(error, db){
-    console.log('连接成功!');
-    insertData(db);
 });

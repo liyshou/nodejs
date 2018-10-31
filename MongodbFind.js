@@ -2,8 +2,14 @@
 var DB_CONN_STR = 'mongodb://94.191.33.247:27017/test';
 const mongoClient = require('mongodb').MongoClient;
 mongoClient.connect(DB_CONN_STR, function(err, client) {
+    if(!err)
+    {
+        console.log("连接成功。");
+        FindData(client);
+    }
+});
 
-    console.log("连接成功。");
+function FindData(client) {
     const db = client.db("test");
     const collection = db.collection('custom');
 
@@ -19,5 +25,4 @@ mongoClient.connect(DB_CONN_STR, function(err, client) {
             client.close();
         });
     });
-
-});
+}

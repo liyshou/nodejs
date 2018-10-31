@@ -1,16 +1,23 @@
 //修改上述 db.js
-var mongoose = require('mongodb').MongoClient;
-    DB_URL = 'mongodb://94.191.33.247:27017/test';
-
-/**
- * 连接
- */
-mongoose.connect(DB_URL,function (err,db) {
-    if(!err){
-        console.log("连接成功。");
-    }
-   // db.close();
-});
 
 
-module.exports = mongoose;
+function FindData(client) {
+    const db = client.db("test");
+    const collection = db.collection('custom');
+
+    //查询数据
+    var whereStr = {"name":"shou"};
+    collection.find(whereStr,function (error,cursor) {
+        cursor.each(function (error ,doc) {
+            if(doc){
+                if(doc.age){
+                    console.log("age:" + doc.age);
+                    exports.customerage = doc.age;
+                }
+            }
+            client.close();
+        });
+    });
+}
+
+module.exports = FindData;

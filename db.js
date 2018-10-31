@@ -1,6 +1,5 @@
 //修改上述 db.js
 
-
 function FindData(client) {
     const db = client.db("test");
     const collection = db.collection('custom');
@@ -12,7 +11,10 @@ function FindData(client) {
             if(doc){
                 if(doc.age){
                     console.log("age:" + doc.age);
-                    exports.customerage = doc.age;
+                    global.age = doc.age;
+                    global.id = doc._id;
+                    global.name = doc.name;
+                    console.log("id:"+global.id +"    age:" + global.age +"    name:"+ global.name);
                 }
             }
             client.close();

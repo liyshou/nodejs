@@ -13,7 +13,7 @@ mongoose.connect(DB_URL,function (err,client) {
         http.createServer(function(req,res)
         {
             res.writeHead(200,{"Content-type":"text/blain"});
-            res.write(finddata);
+            res.write(customerage);
             res.end();
         }).listen(8888);
     }

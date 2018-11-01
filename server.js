@@ -19,10 +19,9 @@ mongoose.connect(DB_URL,function (err,client) {
             req.on('data',function (data) {
                console.log("服务器接收到的数据:" +decodeURIComponent(data));
                 var arry=decodeURIComponent(data).toString().split('&');
-                arry.forEach(function (v,i,a) {
+                arry.forEach(function (v,i) {
                     console.log(v);
                     console.log(i);
-                    console.log(a);
                 });
             });
             req.on('end',function () {

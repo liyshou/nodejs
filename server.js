@@ -9,7 +9,6 @@ mongoose.connect(DB_URL,function (err,client) {
     if(!err){
         console.log("连接成功。");
         new finddata(client);
-        console.log(global.test);
         http.createServer(function(req,res)
         {
             res.writeHead(200,{"Content-type":"text/blain; charset=utf-8"});
@@ -19,6 +18,12 @@ mongoose.connect(DB_URL,function (err,client) {
 
             req.on('data',function (data) {
                console.log("服务器接收到的数据:" +decodeURIComponent(data));
+                var arry=decodeURIComponent(data).toString().split('&');
+                arry.forEach(function (v,i,a) {
+                    console.log(v);
+                    console.log(i);
+                    console.log(a);
+                });
             });
             req.on('end',function () {
                 console.log("客户端请求数据全部接收完毕")

@@ -1,4 +1,5 @@
 var http= require('http');
+var fs = require('fs');
 var finddata  =require('./db');
 var mongoose = require('mongodb').MongoClient;
 DB_URL = 'mongodb://94.191.33.247:27017/test';
@@ -15,6 +16,14 @@ mongoose.connect(DB_URL,function (err,client) {
             res.write("身份证:"+global.id);
             res.write("\n姓名:"+global.name);
             res.write("\n年龄:"+global.age);
+
+            req.on('data',function (data) {
+               console.log("服务器接收到的数据:" +decodeURIComponent(data));
+            });
+            req.on('end',function () {
+                console.log("客户端请求数据全部接收完毕")
+            })
+
             res.end();
         }).listen(8888);
     }

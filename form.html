@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> <!--编码格式-->
+    <title>李源寿</title> <!--标签名字-->
+
+    <script>document.createElement("shou")</script> <!--添加一个新元素-->
+    <style><!--这个新元素的属性-->
+        shou{
+            display: block;
+            background: burlywood;
+            padding: 50px;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+<shou> 您好,请看大屏幕</shou>
+    <form > <!--提示：如需引用一个以上的表单，请使用空格分隔的表单 id 列表。-->
+        <textarea name="message" rows="10" cols="30"> 我的个人信息</textarea>
+        <fieldset><!--组合表单，把相同属性的列为一组-->
+            <legend>Personal information:</legend> <!--组合表单，标识-->
+    姓:<br/>
+        <input type="text" name="姓" required > <!--文本框 required 表示必填-->
+        <br/>
+        名字：<br/>
+        <input type="text" name="名字" autofocus> <!--自动获取焦点-->
+        <br/>
+            密码：<br/>
+            <input type="password" name="psw">
+            <br/>
+        <input type="radio" name="sex" value="男" checked>男   <!--单选框，checked 选中-->
+        <br/>
+        <input type="radio" name="sex" value="女">女    <!--单选框，没有选中  value 初始值-->
+        <br/>
+            <input type="checkbox" name="shou" value="结婚" checked> 你结婚了吗
+            <br/>
+            <input type="range" name="point">     <!--滑块控件-->
+            <br/>
+            <input type="date" name="curtime">     <!--时间-->
+            <br/>
+            邮箱：
+            <input type="email" name="email" value="lyswwr@126.com" readonly>     <!--邮箱  value :初始值，readonly 只读 disable 变灰 被禁用的元素是不可用和不可点击的 被禁用的元素不会被提交-->
+            <br/>
+            搜索：
+            <input type="search" name="search"  value="baidu" size="20" maxlength="5">     <!--搜索  size 设置输入字段的属性大小 maxlength 规定最大值-->
+            <br/>
+            Birthday (date and time):
+            <input type="datetime" name="bdaytime">
+            <br/>
+        <input type="submit"  name="提交"> <!--提交按钮-->
+            <br/>
+            <select name="性别"><!--下拉列表-->
+                <option value="男">男</option>
+                <option value="女">女</option>
+            </select>
+            <br/>
+            <button type="button" onclick="alert('先生你好')">按钮</button><!--点击按钮，需要自己添加事件 点击事件onclick-->
+            <br/>
+            <!--为当前设置预定义值-->
+            <input list="browsers">
+            <datalist id="browsers">
+                <option value="Internet Explorer">
+                <option value="Firefox">
+                <option value="Chrome">
+                <option value="Opera">
+                <option value="Safari">
+            </datalist>
+            <br/>
+            Select images: <input type="file" name="img" multiple>  <!--文件上传按钮-->
+            </fieldset>
+    </form>
+    <!--视频导入并播放-->
+    <video width="420" height="420"  controls>
+        <source src="WeChat_20181101160026.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+<section>
+<article> <!--标签-->
+    <h2>London</h2>
+    <p>London is the capital city of England. It is the most populous city in the United Kingdom,
+        with a metropolitan area of over 13 million inhabitants.</p>
+</article>
+</section>
+<footer><!--底部标签-->
+    <p>© 2014 W3Schools. All rights reserved.</p>
+</footer>
+</body>
+</html>

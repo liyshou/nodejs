@@ -10,8 +10,8 @@ app.use(express.static('/'));//express.static('/')使用相对本文件路径下
 //假如此文件的绝对路径是/home/NodeCode/httpServer/nodeHttp.js
 //__dirname获得此文件所在的目录路径，即返回/home/NodeCode/httpServer
 //__filename可返回此文件的绝对路径，/home/NodeCode/httpServer/nodeHttp.js
-app.get('/client.html',function(req,res){
-    res.sendFile(__dirname+'/'+'client.html');
+app.get('/index.html',function(req,res){
+    res.sendFile(__dirname+'/'+'index.html');
 });//__dirname+'/'+'client.html'，__dirname返回目录路径，之后进行字符串合并，最后的结果就是/home/NodeCode/httpServer/client.html，响应会沿着这个路径找到路径，然后发送给请求
 
 console.log(__dirname);

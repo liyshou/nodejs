@@ -8,25 +8,33 @@ function InsertData(client,arry)
       {
          console.log(v);
         var value= v.toString().split('=');
-        var nametmp ;
-        var agetmp;
         var value1;
-        value.forEach(function (value1,j)
+        var namevalue;
+        var agevalue;
+        if(i ==0)
         {
-            if(j == 0) {
-                nametmp = value1;
-                console.log("name:" + nametmp);
-            }
-            else if(j ==1){
-                agetmp = value1;
-                console.log("age:" + agetmp);
-            }
+            value.forEach(function (value1,j)
+            {
+                 if(j ==1){
+                    console.log("name:" + value1);
+                    namevalue  = value1;
+                }
+            });
+        }
+          if(i ==1)
+          {
+              value.forEach(function (value1,j)
+              {
+                  if(j ==1){
+                      console.log("age:" + value1);
+                      agevalue = value1;
+                  }
+              });
+          }
 
-
-        });
         pass.insertOne({
-            name:value1,
-            age:value1
+            name:namevalue,
+            age:agevalue
         },function (err,result) {
             if(!err)
             {

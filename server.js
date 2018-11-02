@@ -21,7 +21,6 @@ mongoose.connect(DB_URL,function (err,client) {
             });
             res.write("漂亮，用户注册成功！！！");
             res.end();
-            client.close()
         }).listen(8888);
     }
 });

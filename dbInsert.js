@@ -30,6 +30,7 @@ function InsertData(client,arry)
                   }
               });
           }
+          console.log("获取到的数据：name["+namevalue+"]  "+"age["+agevalue +"]");
           var data=[{name:namevalue,age:agevalue}];
           pass.insert(data,function (err,result) {
               console.log(result);

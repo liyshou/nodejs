@@ -5,6 +5,25 @@
     <meta charset="UTF-8">
     <title>SS俱乐部账号注册</title>
     <h1>SS账号注册</h1>
+    <script>
+        // 图形验证码
+        var code ; //在全局定义验证码
+        //产生验证码
+        window.onload = function createCode(){
+            code = "";
+            var codeLength = 4;//验证码的长度
+            var checkCode = document.getElementById("code");
+            var random = new Array(0,1,2,3,4,5,6,7,8,9,'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R',
+                'S','T','U','V','W','X','Y','Z');//随机数
+            for(var i = 0; i < codeLength; i++) {//循环操作
+                var index = Math.floor(Math.random()*36);//取得随机数的索引（0~35）
+                code += random[index];//根据索引取得随机数加到code上
+            }
+            checkCode.value = code;//把code值赋给验证码
+        }
+
+    </script>
+
 </head>
 <body>
     <form id="form1" action = "http://94.191.33.247:8888" method="post" style="line-height: 2">
@@ -12,8 +31,14 @@
         手机号：<input type="tel" name="phone" maxlength="11" minlength="8"/> <br/>
          密码：<input type="password" name="pw"><br/>
         验证码：<input type="text" name="check" value="请输入验证码"> &nbsp; <input type="button" value="获取短信验证码"> <br/>
+        <br/>
+        <label class="myLabel">图形码：
+            <input  type = "button" id="code" onclick="createCode()" style="border: 0;background-color: chartreuse;padding: 0;"/>
+        </label>
+        <br/>
         <input type="submit" name="submit"/>
     </form>
 </body>
 </div>
 </html>
+

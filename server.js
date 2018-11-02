@@ -1,5 +1,4 @@
 var http= require('http');
-var fs = require('fs');
 var InsertData = require('./dbInsert');
 var mongoose = require('mongodb').MongoClient;
 DB_URL = 'mongodb://94.191.33.247:27017/test';
@@ -16,13 +15,13 @@ mongoose.connect(DB_URL,function (err,client) {
                 var arry=decodeURIComponent(data).toString().split('&');
                 //新增记录入库
                 new InsertData(client,arry);
-
             });
             req.on('end',function () {
-                console.log("客户端请求数据全部接收完毕")
-            })
-
+                console.log("");
+            });
+            res.write("漂亮，用户注册成功！！！");
             res.end();
+            client.close()
         }).listen(8888);
     }
 });

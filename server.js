@@ -21,7 +21,7 @@ mongoose.connect(DB_URL,function (err,client) {
                console.log("服务器接收到的数据:" +decodeURIComponent(data));
                 var arry=decodeURIComponent(data).toString().split('&');
                 //新增记录入库
-                new InsertData(arry);
+                new InsertData(client,arry);
 
             });
             req.on('end',function () {
@@ -31,7 +31,7 @@ mongoose.connect(DB_URL,function (err,client) {
             res.end();
         }).listen(8888);
     }
-     client.close();
+    // client.close();
 });
 
 

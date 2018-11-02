@@ -6,7 +6,6 @@ function InsertData(client,arry)
       const pass = db.collection('custom');
       arry.forEach(function (v,i)
       {
-         console.log(v);
         var value= v.toString().split('=');
         var value1;
         var namevalue;

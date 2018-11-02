@@ -30,7 +30,7 @@ function InsertData(client,arry)
                   }
               });
           }
-          var data=[{name:namevalue.toString(),age:agevalue}];
+          var data=[{name:namevalue,age:agevalue}];
           pass.insert(data,function (err,result) {
               console.log(result);
               client.close();

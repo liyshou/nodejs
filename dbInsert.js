@@ -13,8 +13,16 @@ function InsertData(client,arry)
         var value1;
         value.forEach(function (value1,j)
         {
-            if(j == 0) nametmp = value1;
-            else if(j ==1) agetmp = value1;
+            if(j == 0) {
+                nametmp = value1;
+                console.log("name:" + nametmp);
+            }
+            else if(j ==1){
+                agetmp = value1;
+                console.log("age:" + agetmp);
+            }
+
+
         });
         pass.insertOne({
             name:value1,
@@ -25,6 +33,8 @@ function InsertData(client,arry)
                 console.log("新增成功。");
                 console.log(result);
             }
+            else
+                console.log(result);
         });
         client.close();
       });

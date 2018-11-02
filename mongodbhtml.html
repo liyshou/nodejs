@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+<div style="width:100%;text-align:center"> <!--整个表单居中-->
 <head>
     <meta charset="UTF-8">
-    <title>nodejs 获取数据</title>
+    <title>SS俱乐部账号注册</title>
+    <h1>SS账号注册</h1>
 </head>
 <body>
-    <form id="form1" action = "http://94.191.33.247:8888" method="post">
-        姓名：<input type="text" name ="name"/> <br/>
-        年龄：<input type="text" name="age"/> <br/>
+    <form id="form1" action = "http://94.191.33.247:8888" method="post" style="line-height: 2">
+        用户名：<input type="text" name ="name"/> <br/>
+        手机号：<input type="tel" name="phone" maxlength="11" minlength="8"/> <br/>
+         密码：<input type="password" name="pw"><br/>
+        验证码：<input type="text" name="check" value="请输入验证码"> &nbsp; <input type="button" value="获取短信验证码"> <br/>
         <input type="submit" name="submit"/>
     </form>
 </body>
+</div>
 </html>

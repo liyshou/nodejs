@@ -1,5 +1,5 @@
 
-function InsertData(client,arry)
+function InsertData(arry)
 {
       console.log("连接成功。");
     var value1;
@@ -31,19 +31,19 @@ function InsertData(client,arry)
           }
       });
       console.log("获取到的数据：name["+namevalue+"]  "+"age["+agevalue +"]");
- //   var DB_CONN_STR = 'mongodb://94.191.33.247:27017/test';
-   // const mongoClient = require('mongodb').MongoClient;
-  //  mongoClient.connect(DB_CONN_STR, function(err, client) {
+    var DB_CONN_STR = 'mongodb://94.191.33.247:27017/test';
+    const mongoClient = require('mongodb').MongoClient;
+    mongoClient.connect(DB_CONN_STR, function(err, client) {
         const db = client.db("test");
         const pass = db.collection('custom');
-        var data = [{name: 'shouman', age: 56}];
+        var data = [{name: namevalue, age: Number(agevalue)}];
 
         console.log(data);
         pass.insertMany(data, function (err, result) {
             console.log(result);
             client.close();
         });
-  //  });
+    });
 }
 
 

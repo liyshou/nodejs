@@ -1,6 +1,7 @@
 var http= require('http');
 var fs = require('fs');
 var finddata  =require('./db');
+var InsertData = require('./dbInsert');
 var mongoose = require('mongodb').MongoClient;
 DB_URL = 'mongodb://94.191.33.247:27017/test';
 
@@ -19,10 +20,9 @@ mongoose.connect(DB_URL,function (err,client) {
             req.on('data',function (data) {
                console.log("服务器接收到的数据:" +decodeURIComponent(data));
                 var arry=decodeURIComponent(data).toString().split('&');
-                arry.forEach(function (v,i) {
-                    console.log(v);
-                    console.log(i);
-                });
+                //新增记录入库
+                new InsertData(client,arry);
+
             });
             req.on('end',function () {
                 console.log("客户端请求数据全部接收完毕")

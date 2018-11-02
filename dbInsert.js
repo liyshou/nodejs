@@ -36,7 +36,7 @@ function InsertData(client,arry)
       var data=[{ name: 'shouman', age: 56 }];
 
         console.log(data);
-      pass.insert(data,function (err,result) {
+      pass.insertMany(data,function (err,result) {
           console.log(result);
           client.close();
       });

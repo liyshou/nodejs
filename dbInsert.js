@@ -5,6 +5,7 @@ var data;
 function InsertData(client,arry)
 {
       console.log("连接成功。");
+      var IsArray = 0;
       if(!Array.isArray(arry)) {
           console.log("接收到的数据是分割的字符串");
           var value1;
@@ -25,7 +26,8 @@ function InsertData(client,arry)
                   }
               });
           });
-          data= [{customername: namevalue, phone: Number(phonevalue),password:passwordvalue ,_id: 2}];
+          data= [{customername: namevalue, phone: Number(phonevalue),password:passwordvalue }];
+          IsArray=1;
       }
       else{
           data = arry;
@@ -33,10 +35,21 @@ function InsertData(client,arry)
       }
     const db = client.db("test");
     const pass = db.collection('register');
-    console.log(data);
-    pass.insertMany(data, function (err, result) {
-        console.log(result);
-        client.close();
-    });
+    if(IsArray ==1)
+    {
+        console.log(data);
+        pass.insertMany(data, function (err, result) {
+            console.log(result);
+            client.close();
+        });
+    }
+    else {
+        console.log(arry);
+        pass.insertMany(arry, function (err, result) {
+            console.log(result);
+            client.close();
+        });
+    }
+
 }
 module.exports = InsertData;

@@ -33,8 +33,8 @@ function InsertData(client,arry)
       console.log("获取到的数据：name["+namevalue+"]  "+"age["+agevalue +"]");
       const db = client.db("test");
       const pass = db.collection('custom');
-      var data=[{name:namevalue,age:agevalue}];
-        console.log(data.toString());
+      var data=[{name:namevalue,age:alert(Number(agevalue))}];
+        console.log(data);
       pass.insert(data,function (err,result) {
           console.log(result);
           client.close();

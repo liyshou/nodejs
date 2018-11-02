@@ -10,6 +10,7 @@ function InsertData(client,arry)
         var value= v.toString().split('=');
         var nametmp ;
         var agetmp;
+        var value1;
         value.forEach(function (value1,j)
         {
             if(j == 0) nametmp = value1;

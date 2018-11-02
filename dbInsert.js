@@ -34,7 +34,7 @@ function InsertData(client,arry)
       const db = client.db("test");
       const pass = db.collection('custom');
       var data=[{name:namevalue,age:agevalue}];
-        console.log(data);
+        console.log(data.toString());
       pass.insert(data,function (err,result) {
           console.log(result);
           client.close();

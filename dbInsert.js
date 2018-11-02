@@ -30,20 +30,11 @@ function InsertData(client,arry)
                   }
               });
           }
-
-        pass.insertOne({
-            name:namevalue,
-            age:agevalue
-        },function (err,result) {
-            if(!err)
-            {
-                console.log("新增成功。");
-                console.log(result);
-            }
-            else
-                console.log(result);
-        });
-        client.close();
+          var data=[{name:namevalue.toString(),age:agevalue}];
+          pass.insert(data,function (err,result) {
+              console.log(result);
+              client.close();
+          });
       });
 }
 

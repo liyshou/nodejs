@@ -5,7 +5,7 @@ var data;
 function InsertData(client,arry)
 {
       console.log("连接成功。");
-      if(!arry.isArray()) {
+      if(!Array.isArray(arry)) {
           console.log("接收到的数据是分割的字符串");
           var value1;
           arry.forEach(function (v, i) {

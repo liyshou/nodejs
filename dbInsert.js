@@ -1,3 +1,4 @@
+var excludeSpecial = require('./FilterCharacter');
 var namevalue;
 var phonevalue;
 var passwordvalue;
@@ -31,13 +32,16 @@ function InsertData(client,arry)
       }
       else{
           data = arry;
+          console.log(data);
+          new excludeSpecial(data);
           console.log("接收到的数据是一个json 格式的数组");
+          console.log(data);
       }
     const db = client.db("test");
     const pass = db.collection('register');
     if(IsArray ==1)
     {
-        console.log(data);
+
         pass.insertMany(data, function (err, result) {
             console.log(result);
             client.close();

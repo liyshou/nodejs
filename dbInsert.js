@@ -4,14 +4,6 @@ var phonevalue;
 var passwordvalue;
 var data;
 
-var excludeSpecial = function(s) {
-    // 去掉转义字符
-    s = s.replace("'", '');
-    s = s.replace("'", '');
-
-    return s;
-};
-
 function InsertData(client,arry)
 {
       console.log("连接成功。");
@@ -40,7 +32,7 @@ function InsertData(client,arry)
           IsArray=1;
       }
       else{
-          data = excludeSpecial(arry);
+          data =arry.replace("'",'');
           console.log(data);
           console.log("接收到的数据 是一个json 格式的数组");
       }

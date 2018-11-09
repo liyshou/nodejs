@@ -5,8 +5,8 @@ mongoClient.connect(DB_CONN_STR, function(err, client) {
 
     console.log("连接成功。");
     const db = client.db("test");
-    const pass = db.collection('custom');
-    var data=[{ name: 'shouman', age: 56 }];
+    const pass = db.collection('register');
+    var data=[{"customername":"gjbjhnjk","phone":"4545151656458","password":"8755415"}];
     pass.insert(data,function (err,result) {
         console.log(result);
         client.close();

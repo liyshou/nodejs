@@ -1,8 +1,17 @@
-var excludeSpecial = require('./FilterCharacter');
+
 var namevalue;
 var phonevalue;
 var passwordvalue;
 var data;
+
+var excludeSpecial = function(s) {
+    // 去掉转义字符
+    s = s.replace("'", '');
+    s = s.replace("'", '');
+
+    return s;
+};
+
 function InsertData(client,arry)
 {
       console.log("连接成功。");
@@ -31,11 +40,9 @@ function InsertData(client,arry)
           IsArray=1;
       }
       else{
-          data = arry;
+          data = excludeSpecial(arry);
           console.log(data);
-          new excludeSpecial(data);
-          console.log("接收到的数据是一个json 格式的数组");
-          console.log(data);
+          console.log("接收到的数据 是一个json 格式的数组");
       }
     const db = client.db("test");
     const pass = db.collection('register');

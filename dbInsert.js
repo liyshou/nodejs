@@ -32,7 +32,7 @@ function InsertData(client,arry)
           IsArray=1;
       }
       else{
-          data =arry.replace("'",'');
+          data =arry;
           console.log(data);
           console.log("接收到的数据 是一个json 格式的数组");
       }
